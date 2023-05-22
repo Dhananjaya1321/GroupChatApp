@@ -6,6 +6,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,7 +28,9 @@ public class ServerController implements Initializable {
     @FXML
     private Button btnSend;
 
-    public void btnSendOnAction(ActionEvent actionEvent) {
+
+
+    public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
 
     }
 
