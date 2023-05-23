@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -21,6 +23,28 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <AnchorPane prefHeight="358.0" prefWidth="490.0" />
+      <AnchorPane fx:id="logInPane" prefHeight="462.0" prefWidth="490.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="UserName" layoutX="89.0" layoutY="213.0" text="UserName">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUserName" layoutX="97.0" layoutY="247.0" prefHeight="36.0" prefWidth="306.0" style="-fx-background-radius: 10;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnLogIn" layoutX="168.0" layoutY="326.0" mnemonicParsing="false" onAction="#btnLogInOnAction" prefHeight="36.0" prefWidth="167.0" style="-fx-background-radius: 10;" text="Log In">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="imgUser" fitHeight="150.0" fitWidth="150.0" layoutX="177.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../user.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

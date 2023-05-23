@@ -2,8 +2,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.DataInputStream;
@@ -15,6 +17,11 @@ import java.util.ResourceBundle;
 
 public class Client2Controller implements Initializable {
 
+    public AnchorPane logInPane;
+    public Label UserName;
+    public TextField txtUserName;
+    public Button btnLogIn;
+    public ImageView imgUser;
     @FXML
     private AnchorPane pane;
 
@@ -30,6 +37,7 @@ public class Client2Controller implements Initializable {
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
     String msg = "";
+    String userName;
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         dataOutputStream.flush();
@@ -52,5 +60,10 @@ public class Client2Controller implements Initializable {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    public void btnLogInOnAction(ActionEvent actionEvent) {
+        txtUserName.getText();
+        logInPane.setVisible(false);
     }
 }
