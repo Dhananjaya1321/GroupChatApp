@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ServerController implements Initializable {
@@ -50,6 +51,7 @@ public class ServerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ArrayList<ManageClient> manageClients=new ArrayList<>();
         try {
             ServerSocket serverSocket = new ServerSocket(5000);
             new Thread(() -> {
@@ -60,60 +62,13 @@ public class ServerController implements Initializable {
                         System.out.println(socketNew.getPort());
                         if (socketNew.getPort()!=socketOld.getPort()){
                             socket1=socketNew;
+                            dataInputStream1 = new DataInputStream(socket1.getInputStream());
+                            dataOutputStream1 = new DataOutputStream(socket1.getOutputStream());
+                            ManageClient manageClient=new ManageClient(socket1,dataInputStream1,dataOutputStream1);
+                            manageClients.add(manageClient);
+                            ConnectUser connectUser=new ConnectUser(socket1,dataInputStream1,dataOutputStream1,manageClients);
                         }
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-            new Thread(() -> {
-                try {
-                    txtArea.appendText("Server Started!");
-//                    socket1 = serverSocket.accept();
-                    System.out.println(socket1.getPort());
-                    txtArea.appendText("client  1");
-
-                    dataInputStream1 = new DataInputStream(socket1.getInputStream());
-                    dataOutputStream1 = new DataOutputStream(socket1.getOutputStream());
-
-
-                    while (!msg1.equals("exit")) {
-                      /*  msg1 = dataInputStream1.readUTF();
-                        txtArea.appendText("\n 1" + msg1);*/
-                        if (n1.equals("0")) {
-                            n1 = dataInputStream1.readUTF();
-                            System.out.println(n1);
-                        } else {
-                            dataOutputStream2.writeUTF(dataInputStream1.readUTF());
-                            dataOutputStream2.flush();
-                        }
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-            new Thread(() -> {
-                try {
-                    txtArea.appendText("Server Started!");
-//                    socket2 = serverSocket.accept();
-                    txtArea.appendText("client  2");
-                    System.out.println(socket1.getPort());
-                    dataInputStream2 = new DataInputStream(socket1.getInputStream());
-                    dataOutputStream2 = new DataOutputStream(socket1.getOutputStream());
-
-
-                    while (!msg2.equals("exit")) {
-                        /*msg2 = dataInputStream2.readUTF();
-                        txtArea.appendText("\n 2" + msg2);*/
-                        if (n2.equals("0")) {
-                            n2 = dataInputStream2.readUTF();
-                        } else {
-                            dataOutputStream1.writeUTF(dataInputStream2.readUTF());
-                            dataOutputStream1.flush();
-                        }
-                    }
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
