@@ -35,6 +35,7 @@ public class ServerController implements Initializable {
     DataOutputStream dataOutputStream2;
     String msg1 = "";
     String msg2 = "";
+    String n1 = "0", n2 = "0";
 
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
@@ -44,14 +45,32 @@ public class ServerController implements Initializable {
         dataOutputStream2.flush();
     }
 
+    Socket socketNew;
+    Socket socketOld;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             ServerSocket serverSocket = new ServerSocket(5000);
             new Thread(() -> {
                 try {
+                    while (true) {
+                        socketOld=socketNew;
+                        socketNew = serverSocket.accept();
+                        System.out.println(socketNew.getPort());
+                        if (socketNew.getPort()!=socketOld.getPort()){
+                            socket1=socketNew;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            new Thread(() -> {
+                try {
                     txtArea.appendText("Server Started!");
-                    socket1 = serverSocket.accept();
+//                    socket1 = serverSocket.accept();
+                    System.out.println(socket1.getPort());
                     txtArea.appendText("client  1");
 
                     dataInputStream1 = new DataInputStream(socket1.getInputStream());
@@ -59,8 +78,15 @@ public class ServerController implements Initializable {
 
 
                     while (!msg1.equals("exit")) {
-                        msg1 = dataInputStream1.readUTF();
-                        txtArea.appendText("\n 1" + msg1);
+                      /*  msg1 = dataInputStream1.readUTF();
+                        txtArea.appendText("\n 1" + msg1);*/
+                        if (n1.equals("0")) {
+                            n1 = dataInputStream1.readUTF();
+                            System.out.println(n1);
+                        } else {
+                            dataOutputStream2.writeUTF(dataInputStream1.readUTF());
+                            dataOutputStream2.flush();
+                        }
                     }
 
                 } catch (IOException e) {
@@ -70,16 +96,22 @@ public class ServerController implements Initializable {
             new Thread(() -> {
                 try {
                     txtArea.appendText("Server Started!");
-                    socket2 = serverSocket.accept();
+//                    socket2 = serverSocket.accept();
                     txtArea.appendText("client  2");
-
-                    dataInputStream2 = new DataInputStream(socket2.getInputStream());
-                    dataOutputStream2 = new DataOutputStream(socket2.getOutputStream());
+                    System.out.println(socket1.getPort());
+                    dataInputStream2 = new DataInputStream(socket1.getInputStream());
+                    dataOutputStream2 = new DataOutputStream(socket1.getOutputStream());
 
 
                     while (!msg2.equals("exit")) {
-                        msg2 = dataInputStream2.readUTF();
-                        txtArea.appendText("\n 2" + msg2);
+                        /*msg2 = dataInputStream2.readUTF();
+                        txtArea.appendText("\n 2" + msg2);*/
+                        if (n2.equals("0")) {
+                            n2 = dataInputStream2.readUTF();
+                        } else {
+                            dataOutputStream1.writeUTF(dataInputStream2.readUTF());
+                            dataOutputStream1.flush();
+                        }
                     }
 
                 } catch (IOException e) {

@@ -37,7 +37,6 @@ public class Client2Controller implements Initializable {
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
     String msg = "";
-    String userName;
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         dataOutputStream.flush();
@@ -62,8 +61,9 @@ public class Client2Controller implements Initializable {
         }).start();
     }
 
-    public void btnLogInOnAction(ActionEvent actionEvent) {
-        txtUserName.getText();
+    public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {
+        dataOutputStream.writeUTF(txtUserName.getText().trim());
+        dataOutputStream.flush();
         logInPane.setVisible(false);
     }
 }
