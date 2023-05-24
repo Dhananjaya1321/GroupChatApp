@@ -28,45 +28,33 @@ public class ServerController implements Initializable {
 
     @FXML
     private Button btnSend;
-    Socket socket1;
-    DataInputStream dataInputStream1;
-    DataOutputStream dataOutputStream1;
-    Socket socket2;
-    DataInputStream dataInputStream2;
-    DataOutputStream dataOutputStream2;
-    String msg1 = "";
-    String msg2 = "";
-    String n1 = "0", n2 = "0";
-
+    private Socket socket, socketNew, socketOld;
+    private DataInputStream dataInputStream;
+    private DataOutputStream dataOutputStream;
+    private ArrayList<ManageClient> manageClients = new ArrayList<>();
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        dataOutputStream1.writeUTF(txtMsg.getText().trim());
-        dataOutputStream1.flush();
-        dataOutputStream2.writeUTF(txtMsg.getText().trim());
-        dataOutputStream2.flush();
+
     }
 
-    Socket socketNew;
-    Socket socketOld;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<ManageClient> manageClients=new ArrayList<>();
         try {
             ServerSocket serverSocket = new ServerSocket(5000);
             new Thread(() -> {
                 try {
                     while (true) {
-                        socketOld=socketNew;
+                        socketOld = socketNew;
                         socketNew = serverSocket.accept();
                         System.out.println(socketNew.getPort());
-                        if (socketNew.getPort()!=socketOld.getPort()){
-                            socket1=socketNew;
-                            dataInputStream1 = new DataInputStream(socket1.getInputStream());
-                            dataOutputStream1 = new DataOutputStream(socket1.getOutputStream());
-                            ManageClient manageClient=new ManageClient(socket1,dataInputStream1,dataOutputStream1);
+                        if (socketNew.getPort() != socketOld.getPort()) {
+                            socket = socketNew;
+                            dataInputStream = new DataInputStream(socket.getInputStream());
+                            dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                            ManageClient manageClient = new ManageClient(socket, dataInputStream, dataOutputStream);
                             manageClients.add(manageClient);
-                            ConnectUser connectUser=new ConnectUser(socket1,dataInputStream1,dataOutputStream1,manageClients);
+                            ConnectUser connectUser = new ConnectUser(socket, dataInputStream, dataOutputStream, manageClients);
                         }
                     }
                 } catch (IOException e) {

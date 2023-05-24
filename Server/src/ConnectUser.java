@@ -37,8 +37,6 @@ public class ConnectUser {
                             }
                         }
                     }
-                    dataOutputStream.writeUTF("txtMsg.getText().trim()");
-
                 }
 
             } catch (IOException e) {

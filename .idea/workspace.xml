@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/src/ConnectUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/ManageClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/ManageMassage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client1/src/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ConnectUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ConnectUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +108,7 @@
       <updated>1684755117331</updated>
       <workItem from="1684755118913" duration="3570000" />
       <workItem from="1684847045515" duration="8401000" />
-      <workItem from="1684901088340" duration="15107000" />
+      <workItem from="1684901088340" duration="17742000" />
     </task>
     <servers />
   </component>
