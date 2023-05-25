@@ -1,3 +1,6 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -5,14 +8,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.Socket;
 import java.net.URL;
+import java.nio.ByteBuffer;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Client2Controller implements Initializable {
@@ -22,6 +31,7 @@ public class Client2Controller implements Initializable {
     public TextField txtUserName;
     public Button btnLogIn;
     public ImageView imgUser;
+    public Button btnChoosePhotos;
     @FXML
     private AnchorPane pane;
 
@@ -36,7 +46,7 @@ public class Client2Controller implements Initializable {
     Socket socket;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
-    String msg = "";
+    String msg = "",imageName;
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
         txtArea.appendText("\nMe : " + txtMsg.getText());
@@ -68,5 +78,24 @@ public class Client2Controller implements Initializable {
         dataOutputStream.writeUTF(txtUserName.getText().trim());
         dataOutputStream.flush();
         logInPane.setVisible(false);
+    }
+
+    public void btnChoosePhotosOnAction(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter(
+                "Images", "*.jpg", "*.jpeg", "*.png", "*.gif");
+
+        fileChooser.getExtensionFilters().addAll(extFilterPNG);
+        File file = fileChooser.showOpenDialog(null);
+        imageName = file.getAbsolutePath();
+        System.out.println(imageName);
+        try {
+            BufferedImage bufferedImage = ImageIO.read(file);
+            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+
+        } catch (IOException ignored) {
+
+        }
+
     }
 }

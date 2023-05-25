@@ -23,7 +23,16 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="logInPane" prefHeight="472.0" prefWidth="487.0" style="-fx-background-color: white;">
+      <Button fx:id="btnChoosePhotos" layoutX="312.0" layoutY="368.0" mnemonicParsing="false" onAction="#btnChoosePhotosOnAction" prefHeight="36.0" prefWidth="52.0" style="-fx-background-radius: 10;">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../cam.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <AnchorPane fx:id="logInPane" prefHeight="462.0" prefWidth="494.0" style="-fx-background-color: white;">
          <children>
             <Label fx:id="UserName" layoutX="89.0" layoutY="213.0" text="UserName">
                <font>

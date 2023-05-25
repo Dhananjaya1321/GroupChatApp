@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/cam.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client1/src/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client1/src/Client2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client2/src/Client1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client2/src/Client1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Server/ServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/ServerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client2/Client1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client2/Client1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client2/Client1Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client2/Client1Controller.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +49,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/PlayTech-LiveChat-Application-master/PlayTech-LiveChat-Application-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/util" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -54,6 +59,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client1" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client2\src" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client1\src" />
     </key>
@@ -62,7 +68,7 @@
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppInitializer (2)">
+  <component name="RunManager" selected="Application.AppInitializer (1)">
     <configuration name="AppInitializer (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="Client2" />
@@ -95,11 +101,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.AppInitializer" />
+      <item itemvalue="Application.AppInitializer (1)" />
+      <item itemvalue="Application.AppInitializer (2)" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppInitializer (2)" />
         <item itemvalue="Application.AppInitializer (1)" />
         <item itemvalue="Application.AppInitializer" />
+        <item itemvalue="Application.AppInitializer (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -121,7 +132,7 @@
       <workItem from="1684949992931" duration="2085000" />
       <workItem from="1684988291406" duration="13896000" />
       <workItem from="1685012770384" duration="225000" />
-      <workItem from="1685013053356" duration="3661000" />
+      <workItem from="1685013053356" duration="7369000" />
     </task>
     <servers />
   </component>
