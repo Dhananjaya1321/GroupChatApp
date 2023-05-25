@@ -33,17 +33,15 @@ public class ServerController implements Initializable {
     Socket socket2;
     DataInputStream dataInputStream2;
     DataOutputStream dataOutputStream2;
-    String msg1 = "";
-    String msg2 = "";
-    String name1 = "0";
-    String name2 = "0";
+    Socket socket3;
+    DataInputStream dataInputStream3;
+    DataOutputStream dataOutputStream3;
+    String msg1 = "", msg2 = "", msg3 = "";
+    String name1 = "0", name2 = "0", name3 = "0";
 
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        dataOutputStream1.writeUTF(txtMsg.getText().trim());
-        dataOutputStream1.flush();
-        dataOutputStream2.writeUTF(txtMsg.getText().trim());
-        dataOutputStream2.flush();
+
     }
 
     @Override
@@ -59,12 +57,6 @@ public class ServerController implements Initializable {
                     dataInputStream1 = new DataInputStream(socket1.getInputStream());
                     dataOutputStream1 = new DataOutputStream(socket1.getOutputStream());
 
-
-                 /*   while (!msg1.equals("exit")) {
-                        msg1 = dataInputStream1.readUTF();
-                        txtArea.appendText("\n 1" + msg1);
-                    }
-                    */
                     while (!msg1.equals("exit")) {
                         msg1 = dataInputStream1.readUTF();
                         if (name1.equals("0")) {
@@ -89,12 +81,6 @@ public class ServerController implements Initializable {
 
                     dataInputStream2 = new DataInputStream(socket2.getInputStream());
                     dataOutputStream2 = new DataOutputStream(socket2.getOutputStream());
-
-
-                 /*   while (!msg2.equals("exit")) {
-                        msg2 = dataInputStream2.readUTF();
-                        txtArea.appendText("\n 2" + msg2);
-                    }*/
 
                     while (!msg2.equals("exit")) {
                         msg2 = dataInputStream2.readUTF();

@@ -39,8 +39,10 @@ public class Client1Controller implements Initializable {
     String msg = "";
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
+        txtArea.appendText("\nMe : " + txtMsg.getText());
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         dataOutputStream.flush();
+        txtMsg.setText("");
     }
 
     @Override
