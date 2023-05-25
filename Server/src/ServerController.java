@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ServerController implements Initializable {
@@ -28,15 +27,24 @@ public class ServerController implements Initializable {
 
     @FXML
     private Button btnSend;
-    private Socket socket, socketNew, socketOld;
-    private DataInputStream dataInputStream;
-    private DataOutputStream dataOutputStream;
-    private ArrayList<ManageClient> manageClients = new ArrayList<>();
+    Socket socket1;
+    DataInputStream dataInputStream1;
+    DataOutputStream dataOutputStream1;
+    Socket socket2;
+    DataInputStream dataInputStream2;
+    DataOutputStream dataOutputStream2;
+    String msg1 = "";
+    String msg2 = "";
+    String name1 = "0";
+    String name2 = "0";
+
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-
+        dataOutputStream1.writeUTF(txtMsg.getText().trim());
+        dataOutputStream1.flush();
+        dataOutputStream2.writeUTF(txtMsg.getText().trim());
+        dataOutputStream2.flush();
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,19 +52,61 @@ public class ServerController implements Initializable {
             ServerSocket serverSocket = new ServerSocket(5000);
             new Thread(() -> {
                 try {
-                    while (true) {
-                        socketOld = socketNew;
-                        socketNew = serverSocket.accept();
-                        System.out.println(socketNew.getPort());
-                        if (socketNew.getPort() != socketOld.getPort()) {
-                            socket = socketNew;
-                            dataInputStream = new DataInputStream(socket.getInputStream());
-                            dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                            ManageClient manageClient = new ManageClient(socket, dataInputStream, dataOutputStream);
-                            manageClients.add(manageClient);
-                            ConnectUser connectUser = new ConnectUser(socket, dataInputStream, dataOutputStream, manageClients);
+                    txtArea.appendText("Server Started!");
+                    socket1 = serverSocket.accept();
+                    txtArea.appendText("client  1");
+
+                    dataInputStream1 = new DataInputStream(socket1.getInputStream());
+                    dataOutputStream1 = new DataOutputStream(socket1.getOutputStream());
+
+
+                 /*   while (!msg1.equals("exit")) {
+                        msg1 = dataInputStream1.readUTF();
+                        txtArea.appendText("\n 1" + msg1);
+                    }
+                    */
+                    while (!msg1.equals("exit")) {
+                        msg1 = dataInputStream1.readUTF();
+                        if (name1.equals("0")) {
+                            name1 = msg1;
+                            System.out.println(name1);
+                        } else {
+                            dataOutputStream2.writeUTF(name1 + " :" + msg1);
+                            dataOutputStream2.flush();
                         }
                     }
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            new Thread(() -> {
+                try {
+                    txtArea.appendText("Server Started!");
+                    socket2 = serverSocket.accept();
+                    txtArea.appendText("client  2");
+
+                    dataInputStream2 = new DataInputStream(socket2.getInputStream());
+                    dataOutputStream2 = new DataOutputStream(socket2.getOutputStream());
+
+
+                 /*   while (!msg2.equals("exit")) {
+                        msg2 = dataInputStream2.readUTF();
+                        txtArea.appendText("\n 2" + msg2);
+                    }*/
+
+                    while (!msg2.equals("exit")) {
+                        msg2 = dataInputStream2.readUTF();
+                        if (name2.equals("0")) {
+                            name2 = msg2;
+                            System.out.println(name2);
+                        } else {
+                            dataOutputStream1.writeUTF(name2 + " :" + msg2);
+                            dataOutputStream1.flush();
+                        }
+                    }
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client1/src/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client1/src/Client2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client2/src/Client1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/ConnectUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ConnectUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ManageClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/ServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/ServerController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +45,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Client2/src" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/PlayTech-LiveChat-Application-master/PlayTech-LiveChat-Application-master" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -108,7 +117,15 @@
       <updated>1684755117331</updated>
       <workItem from="1684755118913" duration="3570000" />
       <workItem from="1684847045515" duration="8401000" />
-      <workItem from="1684901088340" duration="17742000" />
+      <workItem from="1684901088340" duration="20807000" />
+      <workItem from="1684946931916" duration="64000" />
+      <workItem from="1684947037070" duration="5000" />
+      <workItem from="1684947061889" duration="634000" />
+      <workItem from="1684948118124" duration="147000" />
+      <workItem from="1684949992931" duration="2085000" />
+      <workItem from="1684988291406" duration="13896000" />
+      <workItem from="1685012770384" duration="225000" />
+      <workItem from="1685013053356" duration="2233000" />
     </task>
     <servers />
   </component>

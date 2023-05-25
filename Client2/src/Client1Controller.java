@@ -37,6 +37,7 @@ public class Client1Controller implements Initializable {
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
     String msg = "";
+
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         dataOutputStream.flush();

@@ -37,6 +37,7 @@ public class Client2Controller implements Initializable {
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
     String msg = "";
+
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         dataOutputStream.flush();
@@ -46,13 +47,13 @@ public class Client2Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         new Thread(() -> {
             try {
-                socket = new Socket("localhost",5000);
+                socket = new Socket("localhost", 5000);
                 dataInputStream = new DataInputStream(socket.getInputStream());
                 dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
                 while (!msg.equals("exit")) {
                     msg = dataInputStream.readUTF();
-                    txtArea.appendText("\n"+msg);
+                    txtArea.appendText("\n" + msg);
                 }
 
             } catch (IOException e) {
