@@ -1,7 +1,9 @@
+import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -10,6 +12,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
@@ -44,7 +48,12 @@ public class Client1Controller implements Initializable {
     String msg = "",imageName;
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        txtArea.appendText("\nMe : " + txtMsg.getText());
+        vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
+
+        Text text = new Text("Me : " + txtMsg.getText());
+        text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
+
+        vBox.getChildren().add(text);
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         dataOutputStream.flush();
         txtMsg.setText("");
@@ -60,10 +69,15 @@ public class Client1Controller implements Initializable {
 
                 while (!msg.equals("exit")) {
                     msg = dataInputStream.readUTF();
-                    txtArea.appendText("\n" + msg);
+                    vBox.setAlignment(Pos.BOTTOM_LEFT);
+                    Text text = new Text(msg);
+                    text.setTextAlignment(TextAlignment.LEFT);
+                    Platform.runLater(() -> {
+                        vBox.getChildren().add(text);
+                    });
 
 
-                    // Read the image data length
+                   /* // Read the image data length
                     int imageDataLength = Integer.parseInt(dataInputStream.readUTF());
 
                     // Read the image data
@@ -73,7 +87,7 @@ public class Client1Controller implements Initializable {
                     // Convert the received data into an image
                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imageData);
                     BufferedImage image = ImageIO.read(byteArrayInputStream);
-                    txtArea.appendText(String.valueOf(image));
+                    txtArea.appendText(String.valueOf(image));*/
 
                 }
 

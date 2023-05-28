@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client1/src/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client1/src/Client2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client2/src/Client1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client2/src/Client1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2Controller.class" afterDir="false" />
@@ -134,7 +132,7 @@
       <workItem from="1685013053356" duration="8223000" />
       <workItem from="1685113395381" duration="10691000" />
       <workItem from="1685170803227" duration="747000" />
-      <workItem from="1685264408018" duration="5446000" />
+      <workItem from="1685264408018" duration="10564000" />
     </task>
     <servers />
   </component>

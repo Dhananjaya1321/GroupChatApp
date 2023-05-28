@@ -16,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 
@@ -52,16 +53,15 @@ public class Client2Controller implements Initializable {
 
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        txtArea.appendText("\nMe : " + txtMsg.getText());
-        if (name.equals("0")) {
-            name = txtMsg.getText();
-        } else {
-            dataOutputStream.writeUTF(txtMsg.getText().trim());
-            dataOutputStream.flush();
-            txtMsg.setText("");
-        }
+        vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
 
+        Text text = new Text("Me : " + txtMsg.getText());
+        text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
 
+        vBox.getChildren().add(text);
+        dataOutputStream.writeUTF(txtMsg.getText().trim());
+        dataOutputStream.flush();
+        txtMsg.setText("");
     }
 
     @Override
@@ -74,9 +74,13 @@ public class Client2Controller implements Initializable {
 
 
                 while (!msg.equals("exit")) {
-                    int read = dataInputStream.read();
-                    System.out.println(read);
-                    txtArea.appendText("\n" + msg);
+                    msg = dataInputStream.readUTF();
+                    vBox.setAlignment(Pos.BOTTOM_LEFT);
+                    Text text = new Text(msg);
+                    text.setTextAlignment(TextAlignment.LEFT);
+                    Platform.runLater(() -> {
+                        vBox.getChildren().add(text);
+                    });
                 }
 
             } catch (IOException e) {
