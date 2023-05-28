@@ -64,8 +64,8 @@ public class ServerController implements Initializable {
                             name1 = msg1;
                             System.out.println(name1);
                         } else {
-                            System.out.println(name1 + " :" + msg1);
-                            dataOutputStream2.writeUTF(name1 + " :" + msg1);
+                            System.out.println(name1 + " : " + msg1);
+                            dataOutputStream2.writeUTF(name1 + " : " + msg1);
                             dataOutputStream2.flush();
                         }
                     }
@@ -91,8 +91,8 @@ public class ServerController implements Initializable {
                             name2 = msg2;
                             System.out.println(name2);
                         } else {
-                            System.out.println(name2 + " :" + msg2);
-                            dataOutputStream1.writeUTF(name2 + " :" + msg2);
+                            System.out.println(name2 + " : " + msg2);
+                            dataOutputStream1.writeUTF(name2 + " : " + msg2);
                             dataOutputStream1.flush();
                         }
                     }

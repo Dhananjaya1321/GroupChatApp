@@ -75,11 +75,37 @@ public class Client2Controller implements Initializable {
 
                 while (!msg.equals("exit")) {
                     msg = dataInputStream.readUTF();
-                    vBox.setAlignment(Pos.BOTTOM_LEFT);
-                    Text text = new Text(msg);
-                    text.setTextAlignment(TextAlignment.LEFT);
+                    Text text = null;
+                    String[] substrings = msg.split(" ");
+                    if (substrings[2].equals("img")) {
+                        String newMsg=(substrings[3]);
+
+                        System.out.println(substrings[0]);
+                        File file = new File(newMsg);
+                        Image image = new Image(file.toURI().toString());
+
+                        ImageView imageView = new ImageView(image);
+
+                        imageView.setFitWidth(70);
+                        imageView.setFitHeight(70);
+
+                        HBox hBox = new HBox(10);
+                        hBox.setAlignment(Pos.BOTTOM_RIGHT);
+
+                        vBox.setAlignment(Pos.TOP_LEFT);
+                        hBox.setAlignment(Pos.CENTER_LEFT);
+
+                        hBox.getChildren().add(imageView);
+
+                        Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+                    } else {
+                        vBox.setAlignment(Pos.BOTTOM_LEFT);
+                        text = new Text(msg);
+                        text.setTextAlignment(TextAlignment.LEFT);
+                    }
+                    Text finalText = text;
                     Platform.runLater(() -> {
-                        vBox.getChildren().add(text);
+                        vBox.getChildren().add(finalText);
                     });
                 }
 
@@ -96,36 +122,18 @@ public class Client2Controller implements Initializable {
     }
 
     public void btnChoosePhotosOnAction(ActionEvent actionEvent) {
-        FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter(
-                "Images", "*.jpg", "*.jpeg", "*.png", "*.gif");
-
-        fileChooser.getExtensionFilters().addAll(extFilterPNG);
-        File file = fileChooser.showOpenDialog(null);
-        imageName = file.getAbsolutePath();
-        System.out.println(imageName);
         try {
-            BufferedImage bufferedImage = ImageIO.read(file);
-            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Select Image File");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+            File selectedFile = fileChooser.showOpenDialog(null);
 
-
-            File imageFile = new File(imageName);
-            byte[] imageData = Files.readAllBytes(imageFile.toPath());
-
-            // Create a DataOutputStream to send data
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
-
-            // Send the image data length
-            dataOutputStream.writeInt(imageData.length);
-
-            // Send the image data
-            dataOutputStream.writeUTF(String.valueOf(imageData));
+            dataOutputStream.writeUTF("img " + selectedFile.getPath());
+            dataOutputStream.flush();
 
         } catch (IOException ignored) {
 
         }
-
-
     }
-
 }
