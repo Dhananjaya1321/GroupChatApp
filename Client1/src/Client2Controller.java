@@ -1,9 +1,11 @@
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -11,17 +13,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.Socket;
 import java.net.URL;
-import java.nio.ByteBuffer;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ResourceBundle;
 
 public class Client2Controller implements Initializable {
@@ -32,11 +36,9 @@ public class Client2Controller implements Initializable {
     public Button btnLogIn;
     public ImageView imgUser;
     public Button btnChoosePhotos;
+    public VBox vBox;
     @FXML
     private AnchorPane pane;
-
-    @FXML
-    private TextArea txtArea;
 
     @FXML
     private TextField txtMsg;
@@ -46,13 +48,20 @@ public class Client2Controller implements Initializable {
     Socket socket;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
-    String msg = "",imageName;
+    String msg = "", imageName, name = "0";
+
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
         txtArea.appendText("\nMe : " + txtMsg.getText());
-        dataOutputStream.writeUTF(txtMsg.getText().trim());
-        dataOutputStream.flush();
-        txtMsg.setText("");
+        if (name.equals("0")) {
+            name = txtMsg.getText();
+        } else {
+            dataOutputStream.writeUTF(txtMsg.getText().trim());
+            dataOutputStream.flush();
+            txtMsg.setText("");
+        }
+
+
     }
 
     @Override
@@ -63,8 +72,10 @@ public class Client2Controller implements Initializable {
                 dataInputStream = new DataInputStream(socket.getInputStream());
                 dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
+
                 while (!msg.equals("exit")) {
-                    msg = dataInputStream.readUTF();
+                    int read = dataInputStream.read();
+                    System.out.println(read);
                     txtArea.appendText("\n" + msg);
                 }
 
@@ -93,9 +104,24 @@ public class Client2Controller implements Initializable {
             BufferedImage bufferedImage = ImageIO.read(file);
             Image image = SwingFXUtils.toFXImage(bufferedImage, null);
 
+
+            File imageFile = new File(imageName);
+            byte[] imageData = Files.readAllBytes(imageFile.toPath());
+
+            // Create a DataOutputStream to send data
+            dataOutputStream = new DataOutputStream(socket.getOutputStream());
+
+            // Send the image data length
+            dataOutputStream.writeInt(imageData.length);
+
+            // Send the image data
+            dataOutputStream.writeUTF(String.valueOf(imageData));
+
         } catch (IOException ignored) {
 
         }
 
+
     }
+
 }

@@ -9,16 +9,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ResourceBundle;
 
 public class Client1Controller implements Initializable {
@@ -29,11 +29,9 @@ public class Client1Controller implements Initializable {
     public Button btnLogIn;
     public ImageView imgUser;
     public Button btnChoosePhotos;
+    public VBox vBox;
     @FXML
     private AnchorPane pane;
-
-    @FXML
-    private TextArea txtArea;
 
     @FXML
     private TextField txtMsg;
@@ -63,6 +61,20 @@ public class Client1Controller implements Initializable {
                 while (!msg.equals("exit")) {
                     msg = dataInputStream.readUTF();
                     txtArea.appendText("\n" + msg);
+
+
+                    // Read the image data length
+                    int imageDataLength = Integer.parseInt(dataInputStream.readUTF());
+
+                    // Read the image data
+                    byte[] imageData = new byte[imageDataLength];
+                    dataInputStream.readFully(imageData);
+
+                    // Convert the received data into an image
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imageData);
+                    BufferedImage image = ImageIO.read(byteArrayInputStream);
+                    txtArea.appendText(String.valueOf(image));
+
                 }
 
             } catch (IOException e) {
@@ -87,8 +99,18 @@ public class Client1Controller implements Initializable {
         imageName = file.getAbsolutePath();
         System.out.println(imageName);
         try {
-            BufferedImage bufferedImage = ImageIO.read(file);
-            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+            File imageFile = new File(imageName);
+            byte[] imageData = Files.readAllBytes(imageFile.toPath());
+
+            // Create a DataOutputStream to send data
+            DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
+
+            // Send the image data length
+            dataOutputStream.writeInt(imageData.length);
+
+            // Send the image data
+            dataOutputStream.writeUTF(String.valueOf(imageData));
+
 
         } catch (IOException ignored) {
 

@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.UTFDataFormatException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
@@ -68,6 +69,7 @@ public class ServerController implements Initializable {
                         }
                     }
 
+                } catch (UTFDataFormatException e){
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -92,6 +94,8 @@ public class ServerController implements Initializable {
                             dataOutputStream1.flush();
                         }
                     }
+
+                } catch (UTFDataFormatException e){
 
                 } catch (IOException e) {
                     e.printStackTrace();
