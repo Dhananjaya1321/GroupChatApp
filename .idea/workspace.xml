@@ -5,10 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client1/src/Client2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client2/src/Client1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client2/Client1Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client2/Client1Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Server/ServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Server/ServerController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,17 +83,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.AppInitializer" />
       <item itemvalue="Application.AppInitializer (1)" />
@@ -132,7 +117,8 @@
       <workItem from="1685013053356" duration="8223000" />
       <workItem from="1685113395381" duration="10691000" />
       <workItem from="1685170803227" duration="747000" />
-      <workItem from="1685264408018" duration="17081000" />
+      <workItem from="1685264408018" duration="17333000" />
+      <workItem from="1685339058533" duration="5039000" />
     </task>
     <servers />
   </component>

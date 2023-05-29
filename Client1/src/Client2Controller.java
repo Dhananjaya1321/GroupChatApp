@@ -54,11 +54,16 @@ public class Client2Controller implements Initializable {
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
         vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
-
         Text text = new Text("Me : " + txtMsg.getText());
         text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
+        HBox hBox = new HBox(10);
+        hBox.setAlignment(Pos.BOTTOM_LEFT);
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.getChildren().add(text);
 
-        vBox.getChildren().add(text);
+
+        Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         dataOutputStream.flush();
         txtMsg.setText("");
@@ -92,21 +97,30 @@ public class Client2Controller implements Initializable {
                         HBox hBox = new HBox(10);
                         hBox.setAlignment(Pos.BOTTOM_RIGHT);
 
-                        vBox.setAlignment(Pos.TOP_LEFT);
+                        vBox.setAlignment(Pos.BOTTOM_LEFT);
                         hBox.setAlignment(Pos.CENTER_LEFT);
 
                         hBox.getChildren().add(imageView);
 
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                     } else {
-                        vBox.setAlignment(Pos.BOTTOM_LEFT);
+//                        vBox.setAlignment(Pos.BOTTOM_LEFT);
                         text = new Text(msg);
                         text.setTextAlignment(TextAlignment.LEFT);
+
+
+                        HBox hBox = new HBox(10);
+                        hBox.setAlignment(Pos.BOTTOM_RIGHT);
+
+                        vBox.setAlignment(Pos.BOTTOM_LEFT);
+                        hBox.setAlignment(Pos.CENTER_LEFT);
+
+                        hBox.getChildren().add(text);
+
+                        Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+
                     }
-                    Text finalText = text;
-                    Platform.runLater(() -> {
-                        vBox.getChildren().add(finalText);
-                    });
+
                 }
 
             } catch (IOException e) {
@@ -130,6 +144,18 @@ public class Client2Controller implements Initializable {
 
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
             dataOutputStream.writeUTF("img " + selectedFile.getPath());
+
+            File file = new File(selectedFile.getPath());
+            Image image = new Image(file.toURI().toString());
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(70);
+            imageView.setFitHeight(70);
+            HBox hBox = new HBox(10);
+            hBox.setAlignment(Pos.BOTTOM_RIGHT);
+            vBox.setAlignment(Pos.BOTTOM_LEFT);
+            hBox.setAlignment(Pos.CENTER_RIGHT);
+            hBox.getChildren().add(imageView);
+            Platform.runLater(() -> vBox.getChildren().addAll(hBox));
             dataOutputStream.flush();
 
         } catch (IOException ignored) {

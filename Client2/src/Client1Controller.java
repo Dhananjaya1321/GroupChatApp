@@ -3,6 +3,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
@@ -49,12 +51,19 @@ public class Client1Controller implements Initializable {
     String msg = "", imageName;
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
 
+
+        vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
         Text text = new Text("Me : " + txtMsg.getText());
         text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
+        HBox hBox = new HBox(10);
+        hBox.setAlignment(Pos.BOTTOM_LEFT);
+        hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.getChildren().add(text);
 
-        vBox.getChildren().add(text);
+
+        Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+
         dataOutputStream.writeUTF(txtMsg.getText().trim());
         dataOutputStream.flush();
         txtMsg.setText("");
@@ -72,12 +81,8 @@ public class Client1Controller implements Initializable {
                     msg = dataInputStream.readUTF();
                     Text text = null;
                     String[] substrings = msg.split(" ");
-                    /*System.out.println(substrings.length);
-                    System.out.println(substrings[0]);
-                    System.out.println(substrings[1]);
-                    System.out.println(substrings[2]);*/
                     if (substrings[2].equals("img")) {
-                        String newMsg=(substrings[3]);
+                        String newMsg = (substrings[3]);
                        /* if (substrings.length>2) {
                             for (int i = 2; i < substrings.length; i++) {
                                 newMsg=newMsg+" "+substrings[i];
@@ -94,25 +99,27 @@ public class Client1Controller implements Initializable {
 
                         HBox hBox = new HBox(10);
                         hBox.setAlignment(Pos.BOTTOM_RIGHT);
+                        vBox.setAlignment(Pos.BOTTOM_LEFT);
+                        hBox.setAlignment(Pos.CENTER_LEFT);
+                        hBox.getChildren().add(imageView);
 
-                            vBox.setAlignment(Pos.TOP_LEFT);
-                            hBox.setAlignment(Pos.CENTER_LEFT);
-
-                            hBox.getChildren().add(imageView);
+                        Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+                    } else {
+//                        vBox.setAlignment(Pos.BOTTOM_LEFT);
+                        text = new Text(msg);
+                        text.setTextAlignment(TextAlignment.LEFT);
+                        HBox hBox = new HBox(10);
+                        hBox.setAlignment(Pos.BOTTOM_RIGHT);
+                        vBox.setAlignment(Pos.BOTTOM_LEFT);
+                        hBox.setAlignment(Pos.CENTER_LEFT);
+                        hBox.getChildren().add(text);
 
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
 
-
-
-                    } else {
-                        vBox.setAlignment(Pos.BOTTOM_LEFT);
-                        text = new Text(msg);
-                        text.setTextAlignment(TextAlignment.LEFT);
                     }
-                    Text finalText = text;
-                    Platform.runLater(() -> {
-                        vBox.getChildren().add(finalText);
-                    });
+
+
+
                 }
 
             } catch (IOException e) {
@@ -135,6 +142,20 @@ public class Client1Controller implements Initializable {
             File selectedFile = fileChooser.showOpenDialog(null);
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
             dataOutputStream.writeUTF("img " + selectedFile.getPath());
+
+
+            File file = new File(selectedFile.getPath());
+            Image image = new Image(file.toURI().toString());
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(70);
+            imageView.setFitHeight(70);
+            HBox hBox = new HBox(10);
+            hBox.setAlignment(Pos.BOTTOM_LEFT);
+            vBox.setAlignment(Pos.TOP_LEFT);
+            hBox.setAlignment(Pos.CENTER_RIGHT);
+            hBox.getChildren().add(imageView);
+
+            Platform.runLater(() -> vBox.getChildren().addAll(hBox));
             dataOutputStream.flush();
         } catch (IOException ignored) {
 
