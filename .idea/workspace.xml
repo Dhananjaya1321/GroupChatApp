@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client1/src/Client2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client2/src/Client1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client2/src/Client1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +37,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -44,7 +48,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/util" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -61,24 +65,42 @@
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppInitializer (2)">
-    <configuration name="AppInitializer (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.AppInitializer (1)">
+    <configuration name="AppInitializer (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="Client2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppInitializer (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="AppInitializer (2)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="Client1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="AppInitializer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="Server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="d" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="d" />
+      <module name="Client2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -87,12 +109,11 @@
       <item itemvalue="Application.AppInitializer" />
       <item itemvalue="Application.AppInitializer (1)" />
       <item itemvalue="Application.AppInitializer (2)" />
+      <item itemvalue="Application.d" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppInitializer (2)" />
-        <item itemvalue="Application.AppInitializer (1)" />
-        <item itemvalue="Application.AppInitializer" />
+        <item itemvalue="Application.d" />
       </list>
     </recent_temporary>
   </component>
@@ -118,7 +139,9 @@
       <workItem from="1685113395381" duration="10691000" />
       <workItem from="1685170803227" duration="747000" />
       <workItem from="1685264408018" duration="17333000" />
-      <workItem from="1685339058533" duration="5039000" />
+      <workItem from="1685339058533" duration="6484000" />
+      <workItem from="1685425108039" duration="23000" />
+      <workItem from="1685425188987" duration="8692000" />
     </task>
     <servers />
   </component>

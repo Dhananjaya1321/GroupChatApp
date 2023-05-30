@@ -38,6 +38,7 @@ public class Client2Controller implements Initializable {
     public ImageView imgUser;
     public Button btnChoosePhotos;
     public VBox vBox;
+    public HBox emoji;
     @FXML
     private AnchorPane pane;
 
@@ -68,7 +69,39 @@ public class Client2Controller implements Initializable {
         dataOutputStream.flush();
         txtMsg.setText("");
     }
+    public void setEmoji() {
+        String[] emojis = new String[]{"\uD83D\uDE00", "\uD83D\uDE03", "\uD83D\uDC4B", "\uD83E\uDD1A", "\uD83D\uDE04", "\uD83D\uDE01", "\uD83D\uDE06"};
+        Label label;
+        String y;
+        for (int i = 0; i < emojis.length; i++) {
+            label = new Label();
+            y = emojis[i];
+            int fontSize = 28;
+            label.setStyle("-fx-font-size: " + fontSize + "px;");
+            label.setText(y);
+            Label finalLabel = label;
+            label.setOnMouseClicked(e -> {
+                System.out.println(finalLabel.getText());
+                vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
+                Text text = new Text("Me : " + finalLabel.getText());
+                text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
+                HBox hBox = new HBox(10);
+                hBox.setAlignment(Pos.BOTTOM_LEFT);
+                hBox.setAlignment(Pos.CENTER_RIGHT);
+                hBox.getChildren().add(text);
+                Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+                try {
+                    dataOutputStream.writeUTF(txtMsg.getText().trim());
+                    dataOutputStream.flush();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            });
+            emoji.setAlignment(Pos.CENTER_LEFT);
+            emoji.getChildren().add(label);
+        }
 
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new Thread(() -> {

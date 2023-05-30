@@ -7,23 +7,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="pane" prefHeight="462.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client1Controller">
    <children>
-      <Label layoutX="211.0" layoutY="21.0" text="Client 1">
+      <Label fx:id="lblName" layoutX="163.0" layoutY="14.0" prefHeight="36.0" prefWidth="165.0" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="txtMsg" layoutX="29.0" layoutY="368.0" prefHeight="36.0" prefWidth="335.0" style="-fx-background-radius: 10;" />
-      <Button fx:id="btnSend" layoutX="377.0" layoutY="368.0" mnemonicParsing="false" onAction="#btnSendOnAction" prefHeight="36.0" prefWidth="93.0" style="-fx-background-radius: 10;" text="Send">
+      <TextField fx:id="txtMsg" layoutX="18.0" layoutY="397.0" prefHeight="36.0" prefWidth="350.0" style="-fx-background-radius: 10;" />
+      <Button fx:id="btnSend" layoutX="377.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnSendOnAction" prefHeight="36.0" prefWidth="99.0" style="-fx-background-radius: 10;" text="Send">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnChoosePhotos" layoutX="312.0" layoutY="368.0" mnemonicParsing="false" onAction="#btnChoosePhotosOnAction" prefHeight="36.0" prefWidth="52.0" style="-fx-background-radius: 10;">
+      <Button fx:id="btnChoosePhotos" layoutX="315.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnChoosePhotosOnAction" prefHeight="36.0" prefWidth="52.0" style="-fx-background-radius: 10;">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -37,7 +38,12 @@
             <VBox fx:id="vBox" prefHeight="257.0" prefWidth="461.0" />
          </content>
       </ScrollPane>
-      <AnchorPane fx:id="logInPane" layoutX="1.0" prefHeight="462.0" prefWidth="490.0" style="-fx-background-color: white;">
+      <ScrollPane layoutX="18.0" layoutY="351.0" prefHeight="42.0" prefWidth="350.0" style="-fx-background-color: white;">
+         <content>
+            <HBox fx:id="emoji" prefHeight="38.0" prefWidth="332.0" />
+         </content>
+      </ScrollPane>
+      <AnchorPane fx:id="logInPane" layoutX="4.0" layoutY="-2.0" prefHeight="472.0" prefWidth="504.0" style="-fx-background-color: white;">
          <children>
             <Label fx:id="UserName" layoutX="89.0" layoutY="213.0" text="UserName">
                <font>
@@ -54,11 +60,12 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <ImageView fx:id="imgUser" fitHeight="150.0" fitWidth="150.0" layoutX="177.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgUser" fitHeight="150.0" fitWidth="150.0" layoutX="177.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../user.png" />
                </image>
             </ImageView>
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

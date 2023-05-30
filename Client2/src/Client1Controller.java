@@ -1,31 +1,29 @@
 import javafx.application.Platform;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.*;
 import java.net.Socket;
 import java.net.URL;
-import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Client1Controller implements Initializable {
@@ -37,6 +35,8 @@ public class Client1Controller implements Initializable {
     public ImageView imgUser;
     public Button btnChoosePhotos;
     public VBox vBox;
+    public HBox emoji;
+    public Label lblName;
     @FXML
     private AnchorPane pane;
 
@@ -51,8 +51,6 @@ public class Client1Controller implements Initializable {
     String msg = "", imageName;
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-
-
         vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
         Text text = new Text("Me : " + txtMsg.getText());
         text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
@@ -69,8 +67,60 @@ public class Client1Controller implements Initializable {
         txtMsg.setText("");
     }
 
+    public void setEmoji() {
+        String[] emojis = new String[]{"\uD83D\uDE00", "\uD83D\uDE03", "\uD83D\uDC4B", "\uD83E\uDD1A", "\uD83D\uDE04", "\uD83D\uDE01", "\uD83D\uDE06"};
+        Label label;
+        String y;
+        for (int i = 0; i < emojis.length; i++) {
+            label = new Label();
+            y = emojis[i];
+            int fontSize = 28;
+            label.setStyle("-fx-font-size: " + fontSize + "px;");
+            label.setText(y);
+            Label finalLabel = label;
+            label.setOnMouseClicked(e -> {
+                System.out.println(finalLabel.getText());
+                vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
+                Text text = new Text("Me : " + finalLabel.getText());
+                text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
+                HBox hBox = new HBox(10);
+                hBox.setAlignment(Pos.BOTTOM_LEFT);
+                hBox.setAlignment(Pos.CENTER_RIGHT);
+                hBox.getChildren().add(text);
+                Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+                try {
+                    dataOutputStream.writeUTF(txtMsg.getText().trim());
+                    dataOutputStream.flush();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            });
+            emoji.setAlignment(Pos.CENTER_LEFT);
+            emoji.getChildren().add(label);
+        }
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        /*
+         */
+/* label.setOnMouseClicked(e -> {
+            System.out.println("Label clicked!");
+        });
+
+        label = new Label();
+        String y = "\uD83D\uDC4B \uD83D\uDE03 \uD83D\uDC4B \uD83E\uDD1A";
+        label.setFont(Font.font("Aller Light", 28));
+        label.setText(y);
+*//*
+
+        // Create a VBox container
+//        VBox box = new VBox();
+//        box.setAlignment(Pos.CENTER_LEFT);
+*/
+
+        setEmoji();
         new Thread(() -> {
             try {
                 socket = new Socket("localhost", 5000);
@@ -117,7 +167,6 @@ public class Client1Controller implements Initializable {
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
 
                     }
-
 
 
                 }
