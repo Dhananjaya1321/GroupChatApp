@@ -67,6 +67,8 @@ public class ServerController implements Initializable {
                             System.out.println(name1 + " : " + msg1);
                             dataOutputStream2.writeUTF(name1 + " : " + msg1);
                             dataOutputStream2.flush();
+                            dataOutputStream3.writeUTF(name1 + " : " + msg1);
+                            dataOutputStream3.flush();
                         }
                     }
 
@@ -94,6 +96,37 @@ public class ServerController implements Initializable {
                             System.out.println(name2 + " : " + msg2);
                             dataOutputStream1.writeUTF(name2 + " : " + msg2);
                             dataOutputStream1.flush();
+                            dataOutputStream3.writeUTF(name2 + " : " + msg2);
+                            dataOutputStream3.flush();
+                        }
+                    }
+
+                } catch (UTFDataFormatException e){
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            new Thread(() -> {
+                try {
+                    txtArea.appendText("Server Started!");
+                    socket3 = serverSocket.accept();
+                    txtArea.appendText("client  3");
+
+                    dataInputStream3 = new DataInputStream(socket3.getInputStream());
+                    dataOutputStream3 = new DataOutputStream(socket3.getOutputStream());
+
+                    while (!msg3.equals("exit")) {
+                        msg3 = dataInputStream3.readUTF();
+                        if (name3.equals("0")) {
+                            name3 = msg3;
+                            System.out.println(name3);
+                        } else {
+                            System.out.println(name3 + " : " + msg3);
+                            dataOutputStream1.writeUTF(name3 + " : " + msg3);
+                            dataOutputStream1.flush();
+                            dataOutputStream2.writeUTF(name3 + " : " + msg3);
+                            dataOutputStream2.flush();
                         }
                     }
 

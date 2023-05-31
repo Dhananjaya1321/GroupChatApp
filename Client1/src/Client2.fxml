@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="pane" prefHeight="462.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client2Controller">
    <children>
-      <Label layoutX="211.0" layoutY="21.0" text="Client 2">
+      <Label layoutX="154.0" layoutY="14.0" prefHeight="36.0" prefWidth="182.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="154.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -33,17 +33,17 @@
             </ImageView>
          </graphic>
       </Button>
-      <ScrollPane layoutX="13.0" layoutY="72.0" prefHeight="260.0" prefWidth="464.0">
+      <ScrollPane layoutX="20.0" layoutY="70.0" prefHeight="260.0" prefWidth="464.0">
          <content>
-            <VBox fx:id="vBox" prefHeight="257.0" prefWidth="461.0" />
+            <VBox fx:id="vBox" prefHeight="257.0" prefWidth="446.0" />
          </content>
       </ScrollPane>
-      <ScrollPane layoutX="29.0" layoutY="340.0" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: white;">
+      <ScrollPane layoutX="29.0" layoutY="338.0" prefHeight="55.0" prefWidth="350.0" style="-fx-background-color: white;">
          <content>
-            <HBox fx:id="emoji" prefHeight="38.0" prefWidth="332.0" />
+            <HBox fx:id="emoji" prefHeight="43.0" prefWidth="343.0" />
          </content>
       </ScrollPane>
-      <AnchorPane fx:id="logInPane" layoutX="-2.0" prefHeight="462.0" prefWidth="494.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="logInPane" layoutX="3.0" prefHeight="462.0" prefWidth="494.0" style="-fx-background-color: white;">
          <children>
             <Label fx:id="UserName" layoutX="89.0" layoutY="213.0" text="UserName">
                <font>
