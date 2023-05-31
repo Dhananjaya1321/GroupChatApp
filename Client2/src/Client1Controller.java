@@ -79,17 +79,22 @@ public class Client1Controller implements Initializable {
             label.setText(y);
             Label finalLabel = label;
             label.setOnMouseClicked(e -> {
-                System.out.println(finalLabel.getText());
                 vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
                 Text text = new Text("Me : " + finalLabel.getText());
+                Label labelSender=new Label();
+                Label labelMsg=new Label();
+                labelMsg.setStyle("-fx-font-size: " + fontSize + "px;");
+                labelSender.setText("Me : ");
+                labelMsg.setText(finalLabel.getText());
                 text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
                 HBox hBox = new HBox(10);
                 hBox.setAlignment(Pos.BOTTOM_LEFT);
                 hBox.setAlignment(Pos.CENTER_RIGHT);
-                hBox.getChildren().add(text);
+                hBox.getChildren().add(labelSender);
+                hBox.getChildren().add(labelMsg);
                 Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                 try {
-                    dataOutputStream.writeUTF(txtMsg.getText().trim());
+                    dataOutputStream.writeUTF("emj "+finalLabel.getText());
                     dataOutputStream.flush();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -103,23 +108,6 @@ public class Client1Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*
-         */
-/* label.setOnMouseClicked(e -> {
-            System.out.println("Label clicked!");
-        });
-
-        label = new Label();
-        String y = "\uD83D\uDC4B \uD83D\uDE03 \uD83D\uDC4B \uD83E\uDD1A";
-        label.setFont(Font.font("Aller Light", 28));
-        label.setText(y);
-*//*
-
-        // Create a VBox container
-//        VBox box = new VBox();
-//        box.setAlignment(Pos.CENTER_LEFT);
-*/
-
         setEmoji();
         new Thread(() -> {
             try {
@@ -133,7 +121,7 @@ public class Client1Controller implements Initializable {
                     String[] substrings = msg.split(" ");
                     if (substrings[2].equals("img")) {
                         String newMsg = (substrings[3]);
-                       /* if (substrings.length>2) {
+                      /*  if (substrings.length>2) {
                             for (int i = 2; i < substrings.length; i++) {
                                 newMsg=newMsg+" "+substrings[i];
                             }
@@ -154,8 +142,22 @@ public class Client1Controller implements Initializable {
                         hBox.getChildren().add(imageView);
 
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+                    } else if (substrings[2].equals("emj")) {
+                        vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
+                        text = new Text();
+                        Label labelSender=new Label();
+                        Label labelMsg=new Label();
+                        labelMsg.setStyle("-fx-font-size: 28px;");
+                        labelSender.setText(substrings[0]+substrings[1]);
+                        labelMsg.setText(substrings[3]);
+                        text.setTextAlignment(TextAlignment.LEFT); // Align text to the right
+                        HBox hBox = new HBox(10);
+                        hBox.setAlignment(Pos.BOTTOM_LEFT);
+                        hBox.setAlignment(Pos.CENTER_LEFT);
+                        hBox.getChildren().add(labelSender);
+                        hBox.getChildren().add(labelMsg);
+                        Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                     } else {
-//                        vBox.setAlignment(Pos.BOTTOM_LEFT);
                         text = new Text(msg);
                         text.setTextAlignment(TextAlignment.LEFT);
                         HBox hBox = new HBox(10);
@@ -167,8 +169,6 @@ public class Client1Controller implements Initializable {
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
 
                     }
-
-
                 }
 
             } catch (IOException e) {

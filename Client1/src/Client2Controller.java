@@ -69,6 +69,7 @@ public class Client2Controller implements Initializable {
         dataOutputStream.flush();
         txtMsg.setText("");
     }
+
     public void setEmoji() {
         String[] emojis = new String[]{"\uD83D\uDE00", "\uD83D\uDE03", "\uD83D\uDC4B", "\uD83E\uDD1A", "\uD83D\uDE04", "\uD83D\uDE01", "\uD83D\uDE06"};
         Label label;
@@ -81,17 +82,22 @@ public class Client2Controller implements Initializable {
             label.setText(y);
             Label finalLabel = label;
             label.setOnMouseClicked(e -> {
-                System.out.println(finalLabel.getText());
                 vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
                 Text text = new Text("Me : " + finalLabel.getText());
+                Label labelSender = new Label();
+                Label labelMsg = new Label();
+                labelMsg.setStyle("-fx-font-size: " + fontSize + "px;");
+                labelSender.setText("Me : ");
+                labelMsg.setText(finalLabel.getText());
                 text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
                 HBox hBox = new HBox(10);
                 hBox.setAlignment(Pos.BOTTOM_LEFT);
                 hBox.setAlignment(Pos.CENTER_RIGHT);
-                hBox.getChildren().add(text);
+                hBox.getChildren().add(labelSender);
+                hBox.getChildren().add(labelMsg);
                 Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                 try {
-                    dataOutputStream.writeUTF(txtMsg.getText().trim());
+                    dataOutputStream.writeUTF(finalLabel.getText());
                     dataOutputStream.flush();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -102,8 +108,10 @@ public class Client2Controller implements Initializable {
         }
 
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setEmoji();
         new Thread(() -> {
             try {
                 socket = new Socket("localhost", 5000);
@@ -116,8 +124,7 @@ public class Client2Controller implements Initializable {
                     Text text = null;
                     String[] substrings = msg.split(" ");
                     if (substrings[2].equals("img")) {
-                        String newMsg=(substrings[3]);
-
+                        String newMsg = (substrings[3]);
                         System.out.println(substrings[0]);
                         File file = new File(newMsg);
                         Image image = new Image(file.toURI().toString());
@@ -136,11 +143,25 @@ public class Client2Controller implements Initializable {
                         hBox.getChildren().add(imageView);
 
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+                    } else if (substrings[2].equals("emj")) {
+                        vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
+                        text = new Text();
+                        Label labelSender=new Label();
+                        Label labelMsg=new Label();
+                        labelMsg.setStyle("-fx-font-size: 28px;");
+                        labelSender.setText(substrings[0]+substrings[1]);
+                        labelMsg.setText(substrings[3]);
+                        text.setTextAlignment(TextAlignment.LEFT); // Align text to the right
+                        HBox hBox = new HBox(10);
+                        hBox.setAlignment(Pos.BOTTOM_LEFT);
+                        hBox.setAlignment(Pos.CENTER_LEFT);
+                        hBox.getChildren().add(labelSender);
+                        hBox.getChildren().add(labelMsg);
+                        Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                     } else {
 //                        vBox.setAlignment(Pos.BOTTOM_LEFT);
                         text = new Text(msg);
                         text.setTextAlignment(TextAlignment.LEFT);
-
 
                         HBox hBox = new HBox(10);
                         hBox.setAlignment(Pos.BOTTOM_RIGHT);

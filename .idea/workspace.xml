@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client2/src/Client1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client1/src/Client2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client1/src/Client2Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client2/src/Client1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client2/src/Client1Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client2/src/d.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client2/Client1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client2/Client1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client2/d.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +70,7 @@
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppInitializer (1)">
+  <component name="RunManager" selected="Application.AppInitializer (2)">
     <configuration name="AppInitializer (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="Client2" />
@@ -87,35 +92,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="d" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="d" />
-      <module name="Client2" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.AppInitializer" />
       <item itemvalue="Application.AppInitializer (1)" />
       <item itemvalue="Application.AppInitializer (2)" />
-      <item itemvalue="Application.d" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.d" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -141,7 +122,9 @@
       <workItem from="1685264408018" duration="17333000" />
       <workItem from="1685339058533" duration="6484000" />
       <workItem from="1685425108039" duration="23000" />
-      <workItem from="1685425188987" duration="8692000" />
+      <workItem from="1685425188987" duration="9148000" />
+      <workItem from="1685469148355" duration="158000" />
+      <workItem from="1685510130521" duration="5227000" />
     </task>
     <servers />
   </component>

@@ -38,12 +38,12 @@
             <VBox fx:id="vBox" prefHeight="257.0" prefWidth="461.0" />
          </content>
       </ScrollPane>
-      <ScrollPane layoutX="18.0" layoutY="351.0" prefHeight="42.0" prefWidth="350.0" style="-fx-background-color: white;">
+      <ScrollPane layoutX="18.0" layoutY="343.0" prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: white;">
          <content>
             <HBox fx:id="emoji" prefHeight="38.0" prefWidth="332.0" />
          </content>
       </ScrollPane>
-      <AnchorPane fx:id="logInPane" layoutX="4.0" layoutY="-2.0" prefHeight="472.0" prefWidth="504.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="logInPane" layoutX="-6.0" layoutY="-2.0" prefHeight="472.0" prefWidth="504.0" style="-fx-background-color: white;">
          <children>
             <Label fx:id="UserName" layoutX="89.0" layoutY="213.0" text="UserName">
                <font>
