@@ -80,8 +80,8 @@ public class ClientController implements Initializable {
             label.setOnMouseClicked(e -> {
                 vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
                 Text text = new Text("Me : " + finalLabel.getText());
-                Label labelSender = new Label();
-                Label labelMsg = new Label();
+                Label labelSender=new Label();
+                Label labelMsg=new Label();
                 labelMsg.setStyle("-fx-font-size: " + fontSize + "px;");
                 labelSender.setText("Me : ");
                 labelMsg.setText(finalLabel.getText());
@@ -93,7 +93,7 @@ public class ClientController implements Initializable {
                 hBox.getChildren().add(labelMsg);
                 Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                 try {
-                    dataOutputStream.writeUTF(finalLabel.getText());
+                    dataOutputStream.writeUTF("emj "+finalLabel.getText());
                     dataOutputStream.flush();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -140,6 +140,7 @@ public class ClientController implements Initializable {
 
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                     } else if (substrings[2].equals("emj")) {
+                        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
                         vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
                         text = new Text();
                         Label labelSender=new Label();

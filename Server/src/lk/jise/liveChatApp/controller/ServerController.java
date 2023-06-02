@@ -8,13 +8,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.UTFDataFormatException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ServerController implements Initializable {
@@ -30,17 +28,8 @@ public class ServerController implements Initializable {
 
     @FXML
     private Button btnSend;
-    Socket socket1;
-    DataInputStream dataInputStream1;
-    DataOutputStream dataOutputStream1;
-    Socket socket2;
-    DataInputStream dataInputStream2;
-    DataOutputStream dataOutputStream2;
-    Socket socket3;
-    DataInputStream dataInputStream3;
-    DataOutputStream dataOutputStream3;
-    String msg1 = "", msg2 = "", msg3 = "";
-    String name1 = "0", name2 = "0", name3 = "0";
+    Socket socket;
+    private static final ArrayList<ClientHandler> clients = new ArrayList<>();
 
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
@@ -51,7 +40,7 @@ public class ServerController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             ServerSocket serverSocket = new ServerSocket(5000);
-            new Thread(() -> {
+           /* new Thread(() -> {
                 try {
                     txtArea.appendText("Server Started!");
                     socket1 = serverSocket.accept();
@@ -138,8 +127,15 @@ public class ServerController implements Initializable {
                     e.printStackTrace();
                 }
             }).start();
-
-
+*/
+            while (true) {
+                System.out.println("Waiting for clients...");
+                socket = serverSocket.accept();
+                System.out.println("Connected");
+                ClientHandler clientThread = new ClientHandler(socket, clients);
+                clients.add(clientThread);
+                clientThread.start();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

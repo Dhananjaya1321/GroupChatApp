@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerAppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/Server.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/view/Server.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/Server.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/ServerController.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +51,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Client3/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server/src" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -71,7 +73,7 @@
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppInitializer (2)">
+  <component name="RunManager" selected="Application.ClientAppInitializer">
     <configuration name="AppInitializer (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="Client2" />
@@ -95,6 +97,13 @@
     </configuration>
     <configuration name="AppInitializer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
+      <module name="Server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientAppInitializer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ClientAppInitializer" />
       <module name="Server" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,9 +134,11 @@
       <item itemvalue="Application.AppInitializer (1)" />
       <item itemvalue="Application.AppInitializer (2)" />
       <item itemvalue="Application.ServerAppInitializer" />
+      <item itemvalue="Application.ClientAppInitializer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClientAppInitializer" />
         <item itemvalue="Application.ServerAppInitializer" />
       </list>
     </recent_temporary>
@@ -162,7 +173,7 @@
       <workItem from="1685535852618" duration="3195000" />
       <workItem from="1685589643986" duration="7000" />
       <workItem from="1685589684578" duration="809000" />
-      <workItem from="1685686218185" duration="788000" />
+      <workItem from="1685686218185" duration="10512000" />
     </task>
     <servers />
   </component>
