@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ServerAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerAppInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Server/AppInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Server/Server.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Server/ServerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/view/Server.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +170,7 @@
       <workItem from="1685535852618" duration="3195000" />
       <workItem from="1685589643986" duration="7000" />
       <workItem from="1685589684578" duration="809000" />
-      <workItem from="1685686218185" duration="10512000" />
+      <workItem from="1685686218185" duration="11853000" />
     </task>
     <servers />
   </component>
