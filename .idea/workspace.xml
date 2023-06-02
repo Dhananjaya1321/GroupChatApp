@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerAppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Server.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/view/Server.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ServerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client1/Client2.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,12 +59,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Server\src" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client3\src" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client1" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client2\src" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client1\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Server\src\lk\jise\liveChatApp\view" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\src" />
     </key>
@@ -81,13 +86,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppInitializer (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppInitializer" />
-      <module name="Server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AppInitializer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="Client3" />
@@ -102,15 +100,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServerAppInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerAppInitializer" />
+      <module name="Server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.AppInitializer" />
       <item itemvalue="Application.AppInitializer (1)" />
       <item itemvalue="Application.AppInitializer (2)" />
-      <item itemvalue="Application.AppInitializer (3)" />
+      <item itemvalue="Application.ServerAppInitializer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppInitializer (3)" />
+        <item itemvalue="Application.ServerAppInitializer" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +162,7 @@
       <workItem from="1685535852618" duration="3195000" />
       <workItem from="1685589643986" duration="7000" />
       <workItem from="1685589684578" duration="809000" />
-      <workItem from="1685686218185" duration="608000" />
+      <workItem from="1685686218185" duration="788000" />
     </task>
     <servers />
   </component>
