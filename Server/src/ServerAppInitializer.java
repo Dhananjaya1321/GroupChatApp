@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AppInitializer extends Application {
+public class ServerAppInitializer extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -13,7 +13,7 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Server.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("lk/jise/liveChatApp/view/Server.fxml"))));
         primaryStage.show();
     }
 }

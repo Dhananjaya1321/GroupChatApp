@@ -1,3 +1,5 @@
+package lk.jise.liveChatApp.controller;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
