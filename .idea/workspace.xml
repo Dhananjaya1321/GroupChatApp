@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/assets/emoji.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/Client.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatApp/lk/jise/liveChatApp/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatApp/lk/jise/liveChatApp/controller/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChatApp/lk/jise/liveChatApp/view/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatApp/lk/jise/liveChatApp/view/Client.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +141,7 @@
       <workItem from="1685589643986" duration="7000" />
       <workItem from="1685589684578" duration="809000" />
       <workItem from="1685686218185" duration="13717000" />
-      <workItem from="1685981847033" duration="2497000" />
+      <workItem from="1685981847033" duration="9869000" />
     </task>
     <servers />
   </component>

@@ -8,13 +8,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="pane" prefHeight="536.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.jise.liveChatApp.controller.ClientController">
    <children>
-      <Label layoutX="154.0" layoutY="14.0" prefHeight="36.0" prefWidth="182.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="154.0">
+      <Label fx:id="lblUserName" layoutX="154.0" layoutY="14.0" prefHeight="36.0" prefWidth="182.0" AnchorPane.leftAnchor="154.0" AnchorPane.rightAnchor="154.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -47,10 +47,10 @@
       </ScrollPane>
       <ScrollPane layoutX="19.0" layoutY="338.0" prefHeight="125.0" prefWidth="464.0" style="-fx-background-color: white;">
          <content>
-            <HBox fx:id="emoji" prefHeight="127.0" prefWidth="445.0" />
+            <VBox fx:id="emoji" prefHeight="123.0" prefWidth="447.0" />
          </content>
       </ScrollPane>
-      <AnchorPane fx:id="logInPane" layoutX="1.0" prefHeight="541.0" prefWidth="495.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="logInPane" layoutX="1.0" prefHeight="551.0" prefWidth="501.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="173.0" layoutX="179.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -70,11 +70,11 @@
                   <DropShadow color="#00000034" height="50.0" radius="24.5" width="50.0" />
                </effect>
             </Button>
-            <Label layoutX="208.0" layoutY="268.0" text="User Name">
+            <Text layoutX="208.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
-            </Label>
+            </Text>
          </children>
       </AnchorPane>
    </children>

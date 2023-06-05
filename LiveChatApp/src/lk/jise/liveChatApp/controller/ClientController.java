@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,18 +24,21 @@ import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ClientController implements Initializable {
 
     public AnchorPane logInPane;
     public Label UserName;
-    public TextField txtUserName;
     public Button btnLogIn;
     public ImageView imgUser;
     public Button btnChoosePhotos;
     public VBox vBox;
-    public HBox emoji;
+
+    public Label lblUserName;
+    public TextField txtUserName;
+    public VBox emoji;
     @FXML
     private AnchorPane pane;
 
@@ -66,10 +70,24 @@ public class ClientController implements Initializable {
         txtMsg.setText("");
     }
 
+    ArrayList labels = new ArrayList();
+
     public void setEmoji() {
-        String[] emojis = new String[]{"\uD83D\uDE00", "\uD83D\uDE03", "\uD83D\uDC4B", "\uD83E\uDD1A", "\uD83D\uDE04", "\uD83D\uDE01", "\uD83D\uDE06"};
+        String[] emojis = new String[]{
+                "\uD83D\uDE00", "\uD83D\uDE03", "\uD83D\uDE04", "\uD83D\uDE01", "\uD83D\uDE06", "\uD83E\uDD23",
+                "\uD83D\uDE02", "\uD83D\uDE42", "\uD83D\uDE43", "\uD83D\uDE09", "\uD83D\uDE0A", "\uD83D\uDE31",
+                "\uD83D\uDE07", "\uD83E\uDD70", "\uD83D\uDE0D", "\uD83E\uDD29", "\uD83D\uDE18", "\uD83D\uDE17",
+                "\uD83D\uDE0F", "\uD83D\uDE12", "\uD83D\uDE1E", "\uD83D\uDE14", "\uD83D\uDE1F", "\uD83D\uDE15",
+                "\uD83D\uDE41", "\uD83D\uDE23", "\uD83D\uDE16", "\uD83D\uDE2B", "\uD83D\uDE29", "\uD83D\uDE22",
+                "\uD83D\uDE2D", "\uD83D\uDE2E", "\uD83D\uDE2F", "\uD83D\uDE32", "\uD83D\uDE33", "\uD83D\uDE35",
+                "\uD83D\uDE28", "\uD83D\uDE30", "\uD83D\uDE25", "\uD83D\uDE34", "\uD83D\uDE37", "\uD83E\uDD12",
+                "\uD83E\uDD15", "\uD83E\uDD22", "\uD83E\uDD2E", "\uD83E\uDD27", "\uD83E\uDD75", "\uD83E\uDD76",
+                "\uD83E\uDD74", "\uD83E\uDD2F", "\uD83E\uDD1F", "\uD83D\uDE20", "\uD83D\uDE21", "\uD83E\uDD2C",
+                "\uD83D\uDE08", "\uD83D\uDC7F", "\uD83D\uDC80", "\uD83D\uDCA9", "\uD83E\uDD21", "\uD83D\uDC79",
+                "\uD83D\uDC7A"};
         Label label;
         String y;
+
         for (int i = 0; i < emojis.length; i++) {
             label = new Label();
             y = emojis[i];
@@ -80,8 +98,8 @@ public class ClientController implements Initializable {
             label.setOnMouseClicked(e -> {
                 vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
                 Text text = new Text("Me : " + finalLabel.getText());
-                Label labelSender=new Label();
-                Label labelMsg=new Label();
+                Label labelSender = new Label();
+                Label labelMsg = new Label();
                 labelMsg.setStyle("-fx-font-size: " + fontSize + "px;");
                 labelSender.setText("Me : ");
                 labelMsg.setText(finalLabel.getText());
@@ -93,15 +111,34 @@ public class ClientController implements Initializable {
                 hBox.getChildren().add(labelMsg);
                 Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                 try {
-                    dataOutputStream.writeUTF("emj "+finalLabel.getText());
+                    dataOutputStream.writeUTF("emj " + finalLabel.getText());
                     dataOutputStream.flush();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
             });
-            emoji.setAlignment(Pos.CENTER_LEFT);
-            emoji.getChildren().add(label);
+            labels.add(label);
+           addEmojis();
         }
+
+    }
+
+    public void addEmojis() {
+        HBox box1 = new HBox();
+        HBox box2 = new HBox();
+        HBox box3 = new HBox();
+        for (int j = 0; j <labels.size(); j++) {
+            if (j<=15){
+                box1.getChildren().add((Node) labels.get(j));
+            }else if (j<=30){
+                box2.getChildren().add((Node) labels.get(j));
+            }else if (j<=45){
+                box3.getChildren().add((Node) labels.get(j));
+            }
+
+        }
+//            emoji.setAlignment(Pos.TOP_LEFT);
+        emoji.getChildren().addAll(box1,box2,box3);
 
     }
 
@@ -142,10 +179,10 @@ public class ClientController implements Initializable {
                     } else if (substrings[2].equals("emj")) {
                         vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
                         text = new Text();
-                        Label labelSender=new Label();
-                        Label labelMsg=new Label();
+                        Label labelSender = new Label();
+                        Label labelMsg = new Label();
                         labelMsg.setStyle("-fx-font-size: 28px;");
-                        labelSender.setText(substrings[0]+substrings[1]);
+                        labelSender.setText(substrings[0] + substrings[1]);
                         labelMsg.setText(substrings[3]);
                         text.setTextAlignment(TextAlignment.LEFT); // Align text to the right
                         HBox hBox = new HBox(10);
@@ -179,6 +216,7 @@ public class ClientController implements Initializable {
     }
 
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {
+        lblUserName.setText(txtUserName.getText());
         dataOutputStream.writeUTF(txtUserName.getText().trim());
         dataOutputStream.flush();
         logInPane.setVisible(false);
