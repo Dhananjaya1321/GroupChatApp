@@ -46,7 +46,7 @@ public class ClientController implements Initializable {
     Socket socket;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
-    String msg = "", imageName, name = "0";
+    String msg = "";
 
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
@@ -140,7 +140,6 @@ public class ClientController implements Initializable {
 
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                     } else if (substrings[2].equals("emj")) {
-                        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
                         vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
                         text = new Text();
                         Label labelSender=new Label();
@@ -156,7 +155,6 @@ public class ClientController implements Initializable {
                         hBox.getChildren().add(labelMsg);
                         Platform.runLater(() -> vBox.getChildren().addAll(hBox));
                     } else {
-//                        vBox.setAlignment(Pos.BOTTOM_LEFT);
                         text = new Text(msg);
                         text.setTextAlignment(TextAlignment.LEFT);
 

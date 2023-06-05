@@ -42,12 +42,8 @@ public class ClientHandler extends Thread {
                             dataOutputStream.flush();
                         }
                     }
-
-
                 }
             }
-
-
         } catch (SocketException ignore) {
         } catch (IOException e) {
             e.printStackTrace();

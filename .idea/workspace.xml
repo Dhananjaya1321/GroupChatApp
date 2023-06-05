@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/assets/emoji.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/ServerAppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/ServerAppInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/controller/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/lk/jise/liveChatApp/view/Server.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/Client.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +50,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/assets" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -58,40 +60,20 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\LiveChatApp\src\lk\jise\liveChatApp\view\assets" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Server\src" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client3\src" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client1" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client2\src" />
-      <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Client1\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Server\src\lk\jise\liveChatApp\view\assets" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\Server\src\lk\jise\liveChatApp\view" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp" />
       <recent name="C:\Users\ACER\Documents\WorkZone\ChatApp\src" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ClientAppInitializer">
-    <configuration name="AppInitializer (1)" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppInitializer" />
-      <module name="Client2" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppInitializer (2)" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppInitializer" />
-      <module name="Client1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppInitializer" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppInitializer" />
-      <module name="Client3" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AppInitializer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="Server" />
@@ -99,46 +81,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientAppInitializer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="ClientAppInitializer" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClientAppInitializer" />
-      <module name="Server" />
+      <module name="ChatApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServerAppInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ServerAppInitializer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ServerAppInitializer" />
-      <module name="Server" />
+      <module name="ChatApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AppInitializer" />
-      <item itemvalue="Application.AppInitializer (1)" />
-      <item itemvalue="Application.AppInitializer (2)" />
       <item itemvalue="Application.ServerAppInitializer" />
       <item itemvalue="Application.ClientAppInitializer" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.ClientAppInitializer" />
-        <item itemvalue="Application.ServerAppInitializer" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -170,7 +141,8 @@
       <workItem from="1685535852618" duration="3195000" />
       <workItem from="1685589643986" duration="7000" />
       <workItem from="1685589684578" duration="809000" />
-      <workItem from="1685686218185" duration="11853000" />
+      <workItem from="1685686218185" duration="13717000" />
+      <workItem from="1685981847033" duration="2497000" />
     </task>
     <servers />
   </component>
