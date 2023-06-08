@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
 
+import java.awt.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -26,6 +27,8 @@ import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ClientController implements Initializable {
 
@@ -39,6 +42,8 @@ public class ClientController implements Initializable {
     public Label lblUserName;
     public TextField txtUserName;
     public VBox emoji;
+    public Label lblMsgError;
+    public Label lblError;
     @FXML
     private AnchorPane pane;
 
@@ -54,20 +59,22 @@ public class ClientController implements Initializable {
 
 
     public void btnSendOnAction(ActionEvent actionEvent) throws IOException {
-        vBox.setAlignment(Pos.BOTTOM_RIGHT); // Align VBox content to the right
-        Text text = new Text("Me : " + txtMsg.getText());
-        text.setTextAlignment(TextAlignment.RIGHT); // Align text to the right
-        HBox hBox = new HBox(10);
-        hBox.setAlignment(Pos.BOTTOM_LEFT);
-        hBox.setAlignment(Pos.CENTER_RIGHT);
-        hBox.getChildren().add(text);
+        if (!txtMsg.getText().equals("") && !txtMsg.getText().equals(" ") && !txtMsg.getText().equals(null)){
+            vBox.setAlignment(Pos.BOTTOM_RIGHT);
+            Text text = new Text("Me : " + txtMsg.getText());
+            text.setTextAlignment(TextAlignment.RIGHT);
+            HBox hBox = new HBox(10);
+            hBox.setAlignment(Pos.BOTTOM_LEFT);
+            hBox.setAlignment(Pos.CENTER_RIGHT);
+            hBox.getChildren().add(text);
 
 
-        Platform.runLater(() -> vBox.getChildren().addAll(hBox));
+            Platform.runLater(() -> vBox.getChildren().addAll(hBox));
 
-        dataOutputStream.writeUTF(txtMsg.getText().trim());
-        dataOutputStream.flush();
-        txtMsg.setText("");
+            dataOutputStream.writeUTF(txtMsg.getText().trim());
+            dataOutputStream.flush();
+            txtMsg.setText("");
+        }
     }
 
     ArrayList labels = new ArrayList();
@@ -216,10 +223,20 @@ public class ClientController implements Initializable {
     }
 
     public void btnLogInOnAction(ActionEvent actionEvent) throws IOException {
-        lblUserName.setText(txtUserName.getText());
-        dataOutputStream.writeUTF(txtUserName.getText().trim());
-        dataOutputStream.flush();
-        logInPane.setVisible(false);
+        String pattern = "^[a-zA-Z0-9_]{4,16}$";
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(txtUserName.getText());
+
+
+        if (matcher.matches()){
+            lblUserName.setText(txtUserName.getText());
+            dataOutputStream.writeUTF(txtUserName.getText().trim());
+            dataOutputStream.flush();
+            logInPane.setVisible(false);
+        }else {
+            txtUserName.setStyle("-fx-border-color: red;-fx-border-radius: 10;");
+            lblError.setText("Invalid userName");
+        }
     }
 
     public void btnChoosePhotosOnAction(ActionEvent actionEvent) {

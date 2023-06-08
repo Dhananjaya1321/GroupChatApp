@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/Client.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatApp/lk/jise/liveChatApp/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatApp/lk/jise/liveChatApp/controller/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatApp/lk/jise/liveChatApp/view/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatApp/lk/jise/liveChatApp/view/Client.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,18 +92,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
+      <item itemvalue="Application.AppInitializer" />
       <item itemvalue="Application.ServerAppInitializer" />
       <item itemvalue="Application.ClientAppInitializer" />
     </list>
@@ -141,7 +129,9 @@
       <workItem from="1685589643986" duration="7000" />
       <workItem from="1685589684578" duration="809000" />
       <workItem from="1685686218185" duration="13717000" />
-      <workItem from="1685981847033" duration="9869000" />
+      <workItem from="1685981847033" duration="10053000" />
+      <workItem from="1686213457439" duration="660000" />
+      <workItem from="1686216109349" duration="1826000" />
     </task>
     <servers />
   </component>
