@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="677a2100-2e09-4b9e-b819-8bcd263444c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/Client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/LiveChatApp/src/lk/jise/liveChatApp/view/Client.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
@@ -71,13 +70,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.ClientAppInitializer">
-    <configuration name="AppInitializer" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppInitializer" />
-      <module name="Server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ClientAppInitializer" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClientAppInitializer" />
       <module name="ChatApp" />
@@ -92,8 +84,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.AppInitializer" />
       <item itemvalue="Application.ServerAppInitializer" />
       <item itemvalue="Application.ClientAppInitializer" />
     </list>
@@ -131,7 +133,9 @@
       <workItem from="1685686218185" duration="13717000" />
       <workItem from="1685981847033" duration="10053000" />
       <workItem from="1686213457439" duration="660000" />
-      <workItem from="1686216109349" duration="1826000" />
+      <workItem from="1686216109349" duration="1991000" />
+      <workItem from="1686414592348" duration="1489000" />
+      <workItem from="1686455823287" duration="1194000" />
     </task>
     <servers />
   </component>
